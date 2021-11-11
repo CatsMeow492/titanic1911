@@ -3,6 +3,7 @@ import pandas as pd
 from pandas.core.indexes.base import InvalidIndexError # data processing, CSV file I/O (e.g. pd.read_csv)
 import seaborn as sns; sns.set_theme() 
 import matplotlib.pyplot as plt
+from math import log2
 # Input data files are available in the read-only "../input/" directory
 # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
 
@@ -61,6 +62,12 @@ for i in df_cat.columns:
     sns.barplot(df_cat[i].value_counts().index,df_cat[i].value_counts()).set_title(i)
     plt.savefig(f'./figures/{i}.png')
     plt.close()
+    
+# Here we get into information gain
+
+#function for calculating entropy
+def entropy(class0, class1):
+    return (class0 * log2(class0) + class 1 * log2(class1))
 
 
 

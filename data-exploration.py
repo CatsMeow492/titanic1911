@@ -8,16 +8,21 @@ from math import log2
 # For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
 
 import os 
-
-            
+     
 training = pd.read_csv('./csv/train.csv')
 test = pd.read_csv('./csv/test.csv')
+
+training['male'] = training['Sex'] == 'male'
+test['male'] = test['Sex'] == 'male'
 
 training['train_test'] = 1
 test['train_test'] = 0
 
 test['Survived'] = np.NAN 
 all_data = pd.concat([training, test])
+
+# first let's clean the data by filling in missing values with the mean
+# add this later !!
 
 # Create a data exploration file and write the columns to the file as well as the training and test set info
 
@@ -65,9 +70,15 @@ for i in df_cat.columns:
     
 # Here we get into information gain
 
-#function for calculating entropy
+# function for calculating entropy
 def entropy(class0, class1):
-    return (class0 * log2(class0) + class 1 * log2(class1))
+    return (class0 * log2(class0) + class1 * log2(class1))
+
+# now we'll calculate the entropy of different splits to determine information gain
+
+
+
+
 
 
 

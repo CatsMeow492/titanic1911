@@ -9,6 +9,8 @@ In this project the goal is to predict the likelihood of someone surviving the T
 ## Data Cleaning
 
 ## Machine Learning
+### Linear Regression
 
 ### Decision Tree
+### Random Forest
 
